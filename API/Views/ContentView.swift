@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
+    var data: FetchData = FetchData()
     var body: some View {
         VStack {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundStyle(.tint)
-            Text("hello dude!!!")
+            Text(data.response.data[1].name ?? " ")
         }
         .padding()
     }
