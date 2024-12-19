@@ -8,7 +8,7 @@
 import Foundation
 
 struct FetchData{
-    var response: Response = Response()
+    var response: Response = Response(Info: info(), data: [])
     
     mutating func getData() async{
         let URLString = "https://api.disneyapi.dev/character"
@@ -26,10 +26,13 @@ struct FetchData{
 
 struct Response: Codable{
     var Info: info = info()
-    var data: [data] = []
+    var data: [CharacterData]
 }
 
-struct data: Codable{
+struct CharacterData: Codable, Identifiable {
+    var id: Int {
+            Int(imageURL?.hashValue ?? 0)
+        }
     var film: [String]?
     var shortFilms: [String]?
     var tvShows: [String]?
@@ -43,9 +46,7 @@ struct data: Codable{
     var updatedAt: String?
 }
 
-extension data: Identifiable{
-    var id: Int {nil ?? 0}
-}
+
 
 struct info: Codable{
     var count: Int?
