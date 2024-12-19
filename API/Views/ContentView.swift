@@ -15,13 +15,7 @@ struct ContentView: View {
     var body: some View {
         ScrollView{
             VStack {
-                ForEach(block.response.data){ d in
-                    Button(action: {
-                        Name = d.name ?? "help"
-                    }, label: {
-                        Text(Name)
-                    })
-                }
+                Text(block.response.title)
             }
         }
         .task {
