@@ -8,17 +8,28 @@
 import SwiftUI
 
 struct ContentView: View {
-    var data: FetchData = FetchData()
+    
+    @State var block: FetchData = FetchData()
+    @State var Name: String = " "
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text(data.response.data[1].name ?? " ")
+        ScrollView{
+            VStack {
+                ForEach(block.response.data){ d in
+                    Button(action: {
+                        Name = d.name ?? "help"
+                    }, label: {
+                        Text(Name)
+                    })
+                }
+            }
         }
-        .padding()
+        .task {
+            await block.getData()
+        }
+        }
     }
-}
+
 
 #Preview {
     ContentView()

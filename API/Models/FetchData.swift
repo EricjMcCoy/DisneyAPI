@@ -11,20 +11,25 @@ struct FetchData{
     var response: Response = Response()
     
     mutating func getData() async{
-        let URLString = "https://api.disneyapi.dev/character?name=Mickey%20Mouse"
+        let URLString = "https://api.disneyapi.dev/character"
         
         guard let url = URL(string: URLString) else {return}
+        let(data, _) = try! await URLSession.shared.data(from: url)
+        response = try! JSONDecoder().decode(Response.self, from: data)
+        
+        let dataString = String(data: data, encoding: .utf8)
+        print(dataString ?? " ")
+        
         
     }
 }
 
-struct Response{
-    var info: InfoState = InfoState()
+struct Response: Codable{
+    var Info: info = info()
     var data: [data] = []
 }
 
 struct data: Codable{
-    var id: Int?
     var film: [String]?
     var shortFilms: [String]?
     var tvShows: [String]?
@@ -36,6 +41,15 @@ struct data: Codable{
     var imageURL: URL?
     var createdAt: String?
     var updatedAt: String?
+}
+
+extension data: Identifiable{
+    var id: Int {nil ?? 0}
+}
+
+struct info: Codable{
+    var count: Int?
+    var totalPages: Int?
 }
 
 
