@@ -10,12 +10,35 @@ import SwiftUI
 struct ContentView: View {
     
     @State var block: FetchData = FetchData()
-    @State var Name: String = " "
     
     var body: some View {
         ScrollView{
             VStack {
                 Text(block.response.title)
+                    .font(.title)
+                
+                AsyncImage(url: block.response.url){
+                    phase in
+                    switch phase{
+                    case.failure:
+                        Image("fnf")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .cornerRadius(10)
+                            .padding()
+                    case .success(let image):
+                        image
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .cornerRadius(10)
+                            .padding()
+                    default:
+                        ProgressView()
+                    }
+                }
+                
+                Text(block.response.explanation)
+                    .padding()
             }
         }
         .task {
