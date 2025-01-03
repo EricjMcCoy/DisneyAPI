@@ -11,7 +11,7 @@ struct FetchData{
     var response: Response = Response()
     
     mutating func getData() async{
-        let URLString = "https://api.nasa.gov/planetary/apod?api_key=WZddIAQWjjWG87oLXVSTxSbJcrxaLbnpKRQReOzP"
+        let URLString = "https://api.nytimes.com/svc/books/v3/lists/current/hardcover-fiction.json?api-key=5630aEipCU2Kv7UDWXgkrWCrQmK0VYHz"
         
         guard let url = URL(string: URLString) else {return}
         let(data, _) = try! await URLSession.shared.data(from: url)
@@ -25,14 +25,26 @@ struct FetchData{
 }
 
 struct Response: Codable{
-    var date: String = " "
-    var explanation: String = " "
-    var hdurl: URL?
-    var media_type: String = " "
-    var service_version: String = " "
-    var title: String = " "
-    var url: URL?
+    var copyright: String = " "
+    var num_results: Int = 0
+    var last_modified: String = " "
+    var results: [Results] = []
 }
 
+struct Results: Codable{
+    var rank: Int
+    var rank_last_week: Int
+    var weeks_on_list: Int
+    var asterisk: Int
+    var publisher: String
+    var description: String
+    var title: String
+    var author: String
+    var book_image: URL
+}
+
+extension Results: Identifiable{
+    var id: String {title}
+}
 
 

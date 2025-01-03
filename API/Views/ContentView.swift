@@ -13,41 +13,12 @@ struct ContentView: View {
     
     var body: some View {
         ScrollView{
-            VStack {
-                Text(block.response.title)
-                    .font(.title)
-                
-                AsyncImage(url: block.response.url){
-                    phase in
-                    switch phase{
-                    case.failure:
-                        Image("fnf")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .cornerRadius(10)
-                            .padding()
-                    case .success(let image):
-                        image
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .cornerRadius(10)
-                            .padding()
-                    default:
-                        ProgressView()
-                    }
-                }
-                
-                Text(block.response.explanation)
-                    .padding()
-            }
-        }
-        .task {
-            await block.getData()
-        }
+            Text(block.response.copyright)
+            
         }
     }
-
-
+    
+}
 #Preview {
     ContentView()
 }
