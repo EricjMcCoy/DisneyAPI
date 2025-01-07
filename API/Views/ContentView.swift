@@ -13,12 +13,14 @@ struct ContentView: View {
     
     var body: some View {
         ScrollView{
-            Text(block.response.copyright)
-            
+            Text("\(block.response.num_results)")
+            }.task {
+                await block.getData()
+            }
         }
     }
-    
-}
+
+
 #Preview {
     ContentView()
 }
