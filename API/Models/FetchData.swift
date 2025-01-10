@@ -11,7 +11,7 @@ struct FetchData{
     var response: Response = Response()
     
     mutating func getData() async{
-        let URLString = "https://api.nytimes.com/svc/books/v3/lists/current/hardcover-fiction.json?api-key=5630aEipCU2Kv7UDWXgkrWCrQmK0VYHz"
+        let URLString = "https://api.football-data.org/v4/competitions/"
         
         guard let url = URL(string: URLString) else {return}
         let(data, _) = try! await URLSession.shared.data(from: url)
@@ -25,10 +25,10 @@ struct FetchData{
 }
 
 struct Response: Codable{
-    //var copyright: String = ""
+    var copyright: String = ""
     var num_results: Int = 0
-    //var last_modified: String = ""
-    //var results: [Results] = []
+    var last_modified: String = ""
+    var results: [Results] = []
 }
 
 struct Results: Codable{
