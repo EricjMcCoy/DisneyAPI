@@ -25,33 +25,19 @@ struct FetchData{
 }
 
 struct Response: Codable{
-    var copyright: String = ""
-    var num_results: Int = 0
-    var last_modified: String = ""
-    var results: [Results] = []
+    var count: Int = 0
+    var competitions: [Competitions] = []
+    
 }
 
-struct Results: Codable{
+struct Competitions: Codable{
     var list_name: String?
     var books: [Books]
 }
+struct area
 
-extension Results: Identifiable{
-    var id: String {list_name ?? " "}
-}
 
-struct Books: Codable{
-    var rank: Int?
-    var rank_last_week: Int?
-    var weeks_on_list: Int?
-    var asterisk: Int?
-    var publisher: String?
-    var description: String?
-    var title: String?
-    var author: String?
-    var book_image: URL?
-}
 
-extension Books: Identifiable{
-    var id: String {title ?? " "}
-}
+
+
+
