@@ -31,11 +31,50 @@ struct Response: Codable{
 }
 
 struct Competitions: Codable{
-    var list_name: String?
-    var books: [Books]
+    var area: Area?
+    var name: String?
+    var code: String?
+    var type: String?
+    var emblem: URL?
+    var plan: String?
+    var cuttentSeason: CurrentSeason?
 }
-struct area
 
+extension Competitions: Identifiable{
+    var id: String {name ?? " "}
+}
+
+struct Area: Codable{
+    var name: String?
+    var code: String?
+    var flag: URL?
+    var numberOfAvailableSeasons: Int?
+    var lastUpdated: String?
+}
+
+extension Area: Identifiable{
+    var id: String {name ?? " "}
+}
+
+struct CurrentSeason: Codable{
+    var startDate: String?
+    var endDate: String?
+    var currentMatchday: Int?
+    var winner: Winner?
+}
+
+extension CurrentSeason: Identifiable{
+    var id: String {startDate ?? " "}
+}
+
+struct Winner: Codable{
+    var name: String?
+    var crest: URL?
+}
+
+extension Winner: Identifiable{
+    var id: String {name ?? " "}
+}
 
 
 
