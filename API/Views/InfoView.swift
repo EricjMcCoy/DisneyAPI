@@ -13,13 +13,13 @@ struct InfoView: View {
     var body: some View {
         ZStack{
             Rectangle()
-                .foregroundColor(.red)
+                .foregroundColor(Color.backgroundGreen)
                 .edgesIgnoringSafeArea(.all)
             VStack{
                 ZStack{
                     Rectangle()
                         .cornerRadius(70)
-                        .foregroundColor(.gray)
+                        .foregroundColor(Color.buttonmain)
                         .scaledToFit()
                         .padding()
                     
@@ -36,22 +36,22 @@ struct InfoView: View {
                 }
                     
                     Text(comp.name ?? "aaaa")
-                    .font(.largeTitle)
+                    .font(Constants.mainBigFont)
                     .bold()
                     .underline()
                     .padding()
                     
                 HStack{
                     Text("Type: " + (comp.type ?? "aaaa"))
-                        .font(.title)
+                        .font(Constants.mainFont)
                         .padding()
                     
                     Spacer()
                 }
                     
                 HStack{
-                    Text("country: " + (comp.area?.name ?? "aaaaa"))
-                        .font(.title)
+                    Text("Country: " + (comp.area?.name ?? "aaaaa"))
+                        .font(Constants.mainFont)
                         .padding()
                     
                     Spacer()
@@ -64,13 +64,15 @@ struct InfoView: View {
                   
                 HStack{
                     if(comp.cuttentSeason?.winner?.name == nil){
-                        Text("Winner: Unknown")
-                            .font(.title)
+                        Text("Winner: Undecided")
+                            .font(Constants.mainFont)
                             .padding()
                     }
                     
                     else{
                         Text("Winner: " + (comp.cuttentSeason?.winner?.name ?? " "))
+                            .font(Constants.mainFont)
+                            .padding()
                         
                         AsyncImage(url: comp.cuttentSeason?.winner?.crest)
                     }

@@ -14,9 +14,13 @@ struct ContentView: View {
     @State var Comps: Competitions = Competitions()
     var body: some View {
         ZStack{
+            Rectangle()
+                .edgesIgnoringSafeArea(.all)
+                .foregroundColor(Color.backgroundmain)
+            
             if(page){
                 Rectangle()
-                    .foregroundColor(.red)
+                    .foregroundColor(Color.backgroundmain)
                     .edgesIgnoringSafeArea(.all)
                 
                 VStack{
@@ -38,7 +42,7 @@ struct ContentView: View {
                             ZStack{
                                 Rectangle()
                                     .frame(width: 350)
-                                    .foregroundColor(.gray)
+                                    .foregroundColor(Color.buttonmain)
                                     .cornerRadius(10)
                                 VStack{
                                     if(comp.emblem != nil){
@@ -47,7 +51,7 @@ struct ContentView: View {
                                     }
                                     
                                     Text(comp.name ?? " ")
-                                        .font(.title)
+                                        .font(Constants.mainFontLink)
                                         .bold()
                                         .padding()
                                 }
@@ -55,7 +59,7 @@ struct ContentView: View {
                         })
                     }
                 }
-                .padding()
+                
                 .task {
                     await block.getData()
                 }

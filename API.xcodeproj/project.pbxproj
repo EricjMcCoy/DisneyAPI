@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0DC019E42D10C15700B352F6 /* FetchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC019E32D10C15700B352F6 /* FetchData.swift */; };
 		0DC019E62D13429700B352F6 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC019E52D13429700B352F6 /* InfoView.swift */; };
+		0DD57E732D34AD0000235574 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD57E722D34AD0000235574 /* Constants.swift */; };
 		8E96E8DB2D10BD9000366504 /* APIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E96E8DA2D10BD9000366504 /* APIApp.swift */; };
 		8E96E8DD2D10BD9000366504 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E96E8DC2D10BD9000366504 /* ContentView.swift */; };
 		8E96E8DF2D10BD9100366504 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E96E8DE2D10BD9100366504 /* Assets.xcassets */; };
@@ -38,6 +39,7 @@
 /* Begin PBXFileReference section */
 		0DC019E32D10C15700B352F6 /* FetchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchData.swift; sourceTree = "<group>"; };
 		0DC019E52D13429700B352F6 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
+		0DD57E722D34AD0000235574 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8E96E8D72D10BD9000366504 /* API.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = API.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E96E8DA2D10BD9000366504 /* APIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIApp.swift; sourceTree = "<group>"; };
 		8E96E8DC2D10BD9000366504 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				0DC019E32D10C15700B352F6 /* FetchData.swift */,
+				0DD57E722D34AD0000235574 /* Constants.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DD57E732D34AD0000235574 /* Constants.swift in Sources */,
 				0DC019E62D13429700B352F6 /* InfoView.swift in Sources */,
 				8E96E8DD2D10BD9000366504 /* ContentView.swift in Sources */,
 				0DC019E42D10C15700B352F6 /* FetchData.swift in Sources */,
